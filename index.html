@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			width: 100%;
+			position: fixed;
+			left: 0;
+			top: 0;
+			background-color: green;
+
+		}
+	</style>
+</head>
+
+<body>
+	<script>
+		let grow = true;
+		
+		const square = document.createElement('div');
+		let size = 100;
+		document.body.appendChild(square);
+		document.body.style.height = 10000 + "px";
+		square.style.height = size + "px";
+
+		const changeHeight = function () {
+
+			if(size > window.innerHeight / 2){
+				grow = !grow;
+				square.style.backgroundColor = 'red';
+			
+			}else if(size <= 0){
+				grow = !grow;
+				square.style.backgroundColor = 'green';
+			}
+
+				if(grow) {
+					size += 10;
+			}
+				else {
+					size -= 10;
+				}
+				square.style.height = size + "px";
+			};
+		window.addEventListener("scroll", changeHeight) 
+
+	</script>
+</body>
+
+</html>
